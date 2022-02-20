@@ -38,7 +38,7 @@
                     'button',
                     hasSelectedAnswer ? 'validate-button' : 'button-disabled'
                 ]"
-                @click="hasSelectedAnswer ? nextQuestion : null"
+                @click="hasSelectedAnswer ? nextQuestion() : null"
             >
                 {{ (currentQuestion.id == questions[questions.length-1].id) ? 'Terminer' :  'Suivant' }}
             </div>
