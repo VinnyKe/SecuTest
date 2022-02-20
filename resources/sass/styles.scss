@@ -1,0 +1,64 @@
+@import "node_modules/bootstrap/scss/bootstrap";
+
+.disable-select {
+    user-select:none;
+}
+
+.main-wrapper {
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+    margin: 0 auto;
+
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgb(255, 182, 46);
+
+    height: 35px;
+    width: fit-content;
+    padding: 0 15px 3px 15px;
+
+    font-size: 25px;
+    font-weight: bold;
+
+    border: 0 transparent;
+    border-radius: 30px;
+}
+
+.button:hover {
+    background-color: rgb(224, 159, 39);
+    cursor: pointer;
+}
+
+.submit-button {
+    background-color: green;
+}
+
+.submit-button {
+    background-color: rgb(0, 95, 0);
+}
+
+.black-line {
+    height: 1px;
+    background-color: black;
+    width: 40%;
+    margin: 25px 0;
+}
+
+
+.COLORS {
+    light-blue: rgb(21, 118, 216);
+    dark-blue: rgb(16, 90, 165);
+    dark-yellow: rgb(241, 183, 34);
+
+
+    kh-light-blue: rgb(201, 241, 255);
+    kh-dark-blue: rgb(5, 185, 252);
+    kh-yellow: rgb(250, 221, 6);
+}
