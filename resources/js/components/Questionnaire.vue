@@ -191,6 +191,9 @@ export default {
     width: 100%;
     max-width: 600px;
     height: auto;
+    @media (min-width: 1024px) {
+        margin-top: 20px;
+    }
 }
 .question {
     text-align: center;
