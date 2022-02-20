@@ -104,6 +104,7 @@ class QuestionsController extends Controller
         $res = 'success';
         return $res;
     }
+
     public function importQuestions() {
         $this->resetQuestions();
         Excel::import(new QuestionsImport, app_path().'/Imports/files/Questions - v6.xlsx');

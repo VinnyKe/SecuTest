@@ -11,26 +11,26 @@ class QuestionsImport implements ToArray
 
     // HEADERS
     protected $headers = [
-        'id',
+        '#',
         'status',
         'Illustrat.',
-        'niveau',
-        'cat1',
-        'cat2',
-        'type1',
-        'type2',
+        'Niveeau',
+        'category1',
+        'category2',
+        'typ1',
+        'typ2',
         'question',
-        'bulle',
-        'contenu_bulle',
-        'answer1',
-        'answer2',
-        'answer3',
-        'answer4',
-        'correct1',
-        'correct2',
-        'correct3',
-        'correct4',
-        'answer_description',
+        'Bulle',
+        'Contenu bulle',
+        '1',
+        '2',
+        '3',
+        '4',
+        'correct 1',
+        'correct 2',
+        'correct 3',
+        'correct 4',
+        'answer description',
     ];
 
     protected $extensions = 'jpeg|jpg|png|JPEG|JPG|PNG';
@@ -41,7 +41,7 @@ class QuestionsImport implements ToArray
     * @return \Illuminate\Database\Eloquent\Model|null
     */
     public function array($rows) {
-        $files = preg_grep('~\.('.$this->extensions.')$~', scandir('../app/Imports/images'));
+        $files = preg_grep('~\.('.$this->extensions.')$~', scandir(app_path().'/Imports/images'));
 
         /**
          * Make array of files with
@@ -56,8 +56,8 @@ class QuestionsImport implements ToArray
 
         foreach ($rows as $index => $row) {
             if ($row[1] == 4) {
-                $answers = array_filter(array_slice($row, $this->headerPos('answer1'), 4));
-                $correctAnswers = array_slice($row, $this->headerPos('correct1'), 4);
+                $answers = array_filter(array_slice($row, $this->headerPos('1'), 4));
+                $correctAnswers = array_slice($row, $this->headerPos('correct 1'), 4);
 
                 $question = Question::create([
                     'text' => $row[$this->headerPos('question')],
@@ -75,7 +75,7 @@ class QuestionsImport implements ToArray
                 $image = array_search($imageName, $imageFiles);
                 if (!!$image) {
                     $question
-                        ->addMedia('../app/Imports/images/'.$image)
+                        ->addMedia(app_path().'/Imports/images/'.$image)
                         ->preservingOriginal()
                         ->toMediaCollection();
                 }
