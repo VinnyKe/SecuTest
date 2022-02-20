@@ -34,8 +34,11 @@
                     </div>
             </div>
             <div
-                class="button validate-button"
-                @click="nextQuestion"
+                :class="[
+                    'button',
+                    hasSelectedAnswer ? 'validate-button' : 'button-disabled'
+                ]"
+                @click="hasSelectedAnswer ? nextQuestion : null"
             >
                 {{ (currentQuestion.id == questions[questions.length-1].id) ? 'Terminer' :  'Suivant' }}
             </div>
@@ -100,6 +103,9 @@ export default {
     computed: {
         currentQuestion() {
             return this.questions[this.currentIndex];
+        },
+        hasSelectedAnswer() {
+            return this.selectedAnswers.length > 0;
         }
     },
 

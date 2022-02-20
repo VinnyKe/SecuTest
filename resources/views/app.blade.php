@@ -16,7 +16,7 @@
     </head>
     <body>
         <div id="app">
-            <div class="main-wrapper">
+            <div class="main-wrapper disable-select">
                 <router-view></router-view>
             </div>
         </div>

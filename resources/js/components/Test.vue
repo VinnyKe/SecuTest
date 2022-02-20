@@ -180,17 +180,17 @@
         max-width: 1200px;
         margin: 0 auto;
 
-        .validate-button {
-            background-color: green;
+        // .validate-button {
+        //     background-color: green;
 
-            font-size: 30px;
-            width: 140px;
-            height: 40px;
+        //     font-size: 30px;
+        //     width: 140px;
+        //     height: 40px;
 
-        }
-        .validate-button:hover {
-            background-color: rgb(0, 95, 0);
-        }
+        // }
+        // .validate-button:hover {
+        //     background-color: rgb(0, 95, 0);
+        // }
     }
 
     .question-image {
