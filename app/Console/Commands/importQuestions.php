@@ -49,7 +49,6 @@ class importQuestions extends Command
 
         print('Import start'.PHP_EOL);
         Excel::import(new QuestionsImport, app_path().'/Imports/files/'.$this->filename);
-        print('Import complete'.PHP_EOL);
     }
 
     public function resetQuestions() {
