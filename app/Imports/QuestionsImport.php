@@ -42,6 +42,7 @@ class QuestionsImport implements ToArray
     */
     public function array($rows) {
         $files = preg_grep('~\.('.$this->extensions.')$~', scandir(app_path().'/Imports/images'));
+        $questionsCount = 0;
 
         /**
          * Make array of files with
@@ -56,11 +57,16 @@ class QuestionsImport implements ToArray
 
         foreach ($rows as $index => $row) {
             if ($row[1] == 4) {
+                $questionsCount++;
                 $answers = array_filter(array_slice($row, $this->headerPos('1'), 4));
                 $correctAnswers = array_slice($row, $this->headerPos('correct 1'), 4);
 
+                $group = explode('.', $row[$this->headerPos('#')])[0];
+
+                if ($index > 40) break;
                 $question = Question::create([
                     'text' => $row[$this->headerPos('question')],
+                    'group' => $group,
                 ]);
 
                 foreach ($answers as $index => $answer) {
@@ -81,8 +87,16 @@ class QuestionsImport implements ToArray
                 }
             }
         }
+        print('Successfully imported '.$questionsCount.' questions'.PHP_EOL);
     }
 
+    /**
+     * Get the specified header's position
+     *
+     * @param String $header
+     *
+     * @return int The header position in the header array
+     */
     private function headerPos(String $header): int
     {
         return array_search($header, $this->headers);

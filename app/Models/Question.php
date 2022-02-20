@@ -14,6 +14,7 @@ class Question extends Model implements HasMedia
 
     protected $fillable = [
         'text',
+        'group',
     ];
 
     public function registerMediaConversions(Media $media = null): void {

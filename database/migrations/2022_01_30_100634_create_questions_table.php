@@ -17,8 +17,7 @@ class CreateQuestionsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->text('text');
-            $table->text('answer_description');
-            $table->text('image_url')->nullable();
+            $table->text('group');
         });
     }
 
